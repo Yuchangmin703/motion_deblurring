@@ -69,4 +69,7 @@ reports/tables/
 temp_*.png
 temp_*.jpg
 
-printf '\n' >> .gitignore
+printf '\n' >> .gitignoredata/
+Downloads/
+weights/
+results/
