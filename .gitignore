@@ -1,75 +1,63 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-
-# Jupyter
+*.pyo
+*.pyd
 .ipynb_checkpoints/
 
-# Virtual environments
+# Environment
+.env
 .venv/
 venv/
-env/
-ENV/
-
-# Conda
-.conda/
-conda-meta/
-*.conda
-
-# VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
-!.vscode/launch.json
-!.vscode/tasks.json
-
-# OS / editor
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-*~
-
-# Logs
-*.log
-
-# Build / packaging
-build/
-dist/
 *.egg-info/
-.eggs/
 
-# Python caches / test caches
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
+# Ignore large KITTI data
+data/raw/kitti/images/
+data/raw/kitti/labels/
+data/raw/kitti_raw/
+data/interim/
+data/processed/
 
-# Large datasets
-data/raw/
-data/interim/cached_blur_samples/
+# But keep lightweight config/mapping files
+!data/raw/kitti/
+!data/raw/kitti/kitti.yaml
+!data/raw/kitti/mapping/
+!data/raw/kitti/mapping/train_mapping.txt
+!data/raw/kitti/mapping/train_rand.txt
 
-# Processed/generated experiment artifacts
-data/processed/metrics/
-data/processed/grouped/
-data/processed/tables/
-
-# Results
+# Results / generated files
 results/
 reports/figures/
 reports/tables/
+reports/videos/
+reports/*.mp4
+reports/*.png
+reports/*.jpg
+reports/*.csv
 
-# Model weights / checkpoints
-*.pt
-*.pth
-*.onnx
-*.engine
+# Keep notes if needed
+!reports/
+!reports/notes/
 
-# Temporary images
-temp_*.png
-temp_*.jpg
+# Model weights: ignore all by default
+weights/*
+results/train/
 
-printf '\n' >> .gitignoredata/
-Downloads/
-weights/
-results/
+# But keep final trained YOLO weight through Git LFS
+!weights/yolo11n_kitti_best.pt
+
+# Cache
+.cache/
+*.cache
+
+# OS / IDE
+.DS_Store
+.vscode/
+
+# Deprecated / uncertain 0015 experiment
+scripts/build_imu_blur_datasets_0015.py
+scripts/eval_yolo_imu_blur_0015.py
+scripts/predict_yolo_boxes_imu_blur_0015.py
+
+# Pretrained base weight in notebook folder
+notebooks/yolo11n.pt
